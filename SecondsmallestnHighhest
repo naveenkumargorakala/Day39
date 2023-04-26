@@ -1,0 +1,29 @@
+const numArray = [];
+for (let i = 0; i < 10; i++) {
+  const randomNum = Math.floor(Math.random() * 900) + 100;
+  numArray.push(randomNum);
+}
+console.log('Array:', numArray);
+
+
+let smallest = numArray[0];
+let largest = numArray[0];
+let secondSmallest;
+let secondLargest;
+for (let i = 0; i < numArray.length; i++) {
+  if (numArray[i] < smallest) {
+    secondSmallest = smallest;
+    smallest = numArray[i];
+  } else if (numArray[i] < secondSmallest || secondSmallest === undefined) {
+    secondSmallest = numArray[i];
+  }
+
+  if (numArray[i] > largest) {
+    secondLargest = largest;
+    largest = numArray[i];
+  } else if (numArray[i] > secondLargest || secondLargest === undefined) {
+    secondLargest = numArray[i];
+  }
+}
+console.log('Second smallest:', secondSmallest);
+console.log('Second largest:', secondLargest);
